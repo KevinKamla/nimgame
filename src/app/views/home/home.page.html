@@ -1,0 +1,20 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>NIM-GAME</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="container">
+    <div class="btn-game">
+      <ion-button (click)="goToGame(0)">
+        <ion-icon slot="icon-only" name="game-controller-outline"></ion-icon>Jouer contre L'application
+      </ion-button>
+      <ion-button (click)="goToGame(1)" color="success">
+        <ion-icon slot="icon-only" name ="person-outline"></ion-icon>Jouer contre un ami
+      </ion-button>
+    </div>
+  </div>
+
+
+</ion-content>
