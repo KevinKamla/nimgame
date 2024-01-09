@@ -11,6 +11,10 @@ ion-col {
     }
 }
 
+.bg-red {
+    --background: red;
+}
+
 ion-modal {
     ion-title {
         font-size: 13px;

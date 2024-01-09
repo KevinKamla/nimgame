@@ -39,6 +39,7 @@ export class GamePage implements OnInit {
   }
 
   // Retirer un nombre d'objets de la pile
+  
   retirer(nombre: number) {
     // Vérifier que le coup est valide
     if (this.pile >= nombre && nombre > 0 && nombre <= 3) {

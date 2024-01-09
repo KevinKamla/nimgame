@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoadingController, ModalController } from '@ionic/angular';
 import { FirebaseService } from 'src/app/services/firebase.service';
-import { FirebaseApps } from '@angular/fire/app';
 
 @Component({
   selector: 'app-register',
@@ -34,7 +33,7 @@ export class RegisterPage implements OnInit {
     await this.service.registerUser(this.matricule + '@gmail.com', this.password)
       .then(async (res) => {
         this.currentUser = res
-        console.log("Enregistrement reussit : " + res);
+        console.log("Enregistrement reussit : " , res);
         loading.dismiss()
         this.dismiss();
         this.route.navigate(['tabs/home'])
@@ -46,7 +45,8 @@ export class RegisterPage implements OnInit {
           matricule: this.matricule,
           password: this.password
         }
-        // this.service.setDocument('users/' + this.currentUserID, data)
+        this.service.setDocument('users/' + this.currentUserID, data)
+        localStorage.setItem('userCurrent', JSON.stringify(data))
       })
       .catch((err) => {
         console.log("Erreur d'enregistrement : " + err);

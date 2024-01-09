@@ -31,11 +31,14 @@ export class LoginPage implements OnInit {
     await this.service.loginUser(this.matricule + '@gmail.com', this.password)
       .then((res) => {
         this.currentUser = res
-        console.log("Connexion reussit : " + res);
-        loading.dismiss()
-        this.dismiss();
+        console.log("Connexion reussit : ", res.user?.uid);
         this.route.navigate(['tabs/home'])
         localStorage.setItem('log', 'oui');
+        let userdata = this.service.getData('users',res.user?.uid || '').get()
+        console.log("user data : ", userdata);
+        // localStorage.setItem('userCurrent', JSON.stringify(userdata))
+        this.dismiss();
+        loading.dismiss()
       })
       .catch((err) => {
         console.log("Erreur de connexion : " + err);
